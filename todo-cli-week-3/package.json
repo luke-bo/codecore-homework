@@ -1,0 +1,17 @@
+{
+  "name": "todo-cli-week-3",
+  "version": "1.0.0",
+  "description": "homework node cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "node",
+    "assignment",
+    "todo"
+  ],
+  "author": "Luke B",
+  "license": "ISC"
+}
