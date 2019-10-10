@@ -27,21 +27,33 @@ function addTask() {
 function complete(userInput) {
     let taskIndexNumber = userInput.slice(1);
     let task = toDoList[taskIndexNumber];
-    task[0] = '[✓]';
-    console.log(`You completed task: ${task[1]}`);
+
+    if (taskIndexNumber >= toDoList.length) {
+        console.log(`That is not a valid task number. Please try again. \n`);
+    } else {
+        task[0] = '[✓]';
+        console.log(`You completed task: ${task[1]}`);
+    }
     mainMenu();    
 }
 
 function deleteIt(userInput) {
     let taskIndexNumber = userInput.slice(1); //to target which element to delete in array
-    toDoList.splice(taskIndexNumber, 1); // deletes the task
-    console.log(`Task ${taskIndexNumber} was succesfully deleted`); 
+
+    if (taskIndexNumber >= toDoList.length) {
+        console.log(`That is not a valid task number. Please try again. \n`);
+    } else {
+        toDoList.splice(taskIndexNumber, 1); // deletes the task
+        console.log(`Task ${taskIndexNumber} was succesfully deleted`); 
+    }
+
     mainMenu();
 }
 
 function action(userInput) {
 
     if (userInput == 'q') {
+        console.log('See you soon 😄');
         rl.close();
     } else if (userInput == 'n') {
         addTask();
