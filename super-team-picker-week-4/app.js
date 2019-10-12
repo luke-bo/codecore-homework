@@ -2,9 +2,8 @@
 const express = require("express");
 const logger = require("morgan");
 const methodOverride = require("method-override");
-
-
 const rootRouter = require("./routes/root");
+const cohortsRouter = require("./routes/cohort");
 
 const app = express();
 
@@ -13,12 +12,12 @@ app.set("view engine", "ejs");
 
 // setup logger
 app.use(logger("dev"));
-
 // epxress.urlencoded is used to parse the form inputs into a "body" property in our `req` object
 app.use(express.urlencoded({ extended: true }));
 
 
 app.use("/", rootRouter);
+app.use("/cohorts", cohortsRouter);
 app.use(express.static('public'))
 
 
