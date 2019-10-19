@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+
+<!-- by default froms will make a GET request to the current url -->
+<!-- we need to add the action attribute and set it to the correct restful route -->
+<!-- and specify which verb to use -->
+<div class="container-fluid">
+    <h1>Edit Cohort</h1>
+    <form action="/cohorts/<%=cohort.id%>" method="POST">
+        <input type="hidden" name="_method" value="PATCH">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" name="name" value="<%= cohort.name %>">
+        </div>
+        <div class="form-group">
+            <label for="members">Members</label>
+            <textarea class="form-control" cols="50" rows="10" name="members"><%= cohort.members %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="logoUrl">Logo URL</label>
+            <input class="form-control" type="text" name="logoUrl" value="<%= cohort.logoUrl %>">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit Changes</button>
+    </form>
+</div>
+<%- include("../partials/footer") %>
